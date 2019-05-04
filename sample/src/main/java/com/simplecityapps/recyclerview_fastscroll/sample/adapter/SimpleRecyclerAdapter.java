@@ -2,19 +2,16 @@ package com.simplecityapps.recyclerview_fastscroll.sample.adapter;
 
 import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.simplecityapps.recyclerview_fastscroll.sample.R;
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
 
 public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAdapter.ViewHolder>
-        implements FastScrollRecyclerView.SectionedAdapter,
-        FastScrollRecyclerView.MeasurableAdapter {
+        implements FastScrollRecyclerView.SectionedAdapter {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -34,7 +31,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
     @Override
     public int getItemCount() {
-        return 12000;
+        return 200;
     }
 
     @SuppressLint("DefaultLocale")
@@ -42,17 +39,6 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     @Override
     public String getSectionName(int position) {
         return String.format("%d", position + 1);
-    }
-
-    @Override
-    public int getViewTypeHeight(RecyclerView recyclerView,
-                                 @Nullable RecyclerView.ViewHolder viewHolder, int viewType) {
-        if (viewType == R.layout.list_item_header) {
-            return recyclerView.getResources().getDimensionPixelSize(R.dimen.list_item_header_height);
-        } else if (viewType == R.layout.list_item) {
-            return recyclerView.getResources().getDimensionPixelSize(R.dimen.list_item_height);
-        }
-        return 0;
     }
 
     @SuppressLint("DefaultLocale")
